@@ -17,6 +17,7 @@ export class YieldFormulaComponent implements OnInit {
     this.getYieldFormulas();
     this.newYield = new YieldFormula();
   }
+  
   getYieldFormulas() {
     this.heroService
       .getYieldFormulas()

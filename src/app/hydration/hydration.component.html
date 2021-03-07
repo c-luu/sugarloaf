@@ -5,25 +5,17 @@
     <input type="number" disabled [(ngModel)]="refYield.starter" />
   </div>
   <div>
-    <label
-      >Ref flour (g):
-      <input type="number" disabled [(ngModel)]="refYield.flour" />
-    </label>
+    <label>Ref flour (g): </label>
+    <input type="number" disabled [(ngModel)]="refYield.flour" />
   </div>
   <div>
-    <label
-      >Ref water (g):
-      <input type="number" disabled [(ngModel)]="refYield.water" />
-    </label>
+    <label>Ref water (g): </label>
+    <input type="number" disabled [(ngModel)]="refYield.water" />
   </div>
   <div>
-    <label
-      >Ref yield target:
-      <input type="number" disabled [(ngModel)]="refYield.target" />
-    </label>
+    <label>Ref yield target: </label>
+    <input type="number" disabled [(ngModel)]="refYield.target" />
   </div>
-  <!-- <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button> -->
 </div>
 <div *ngIf="hydration">
   <h2>Hydration Percentage Calculator</h2>
@@ -48,14 +40,8 @@
   </div>
   <button (click)="add()">Add Flour Measurement</button>
   <div>
-    <label
-      >% Hydration:
-      <input
-        disabled
-        type="number"
-        [(ngModel)]="hydration.hydrationPercentage"
-      />
-    </label>
+    <label>% Hydration: </label>
+    <input disabled type="number" [(ngModel)]="hydration.hydrationPercentage" />
   </div>
   <button (click)="goBack()">go back</button>
   <button (click)="calculate()">calculate</button>

@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
 import { YieldFormulaService } from '../hero.service';
 import { YieldFormula } from '../hero';
 
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css'],
+  selector: 'app-yield-formula',
+  templateUrl: './yield-formula.component.html',
+  styleUrls: ['./yield-formula.component.css'],
 })
-export class HeroDetailComponent implements OnInit {
+export class YieldFormulaComponent implements OnInit {
   refYield: YieldFormula;
   yield: YieldFormula;
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: YieldFormulaService,
+    private yieldFormulaService: YieldFormulaService,
     private location: Location
   ) {
     this.refYield = new YieldFormula();
@@ -24,12 +23,12 @@ export class HeroDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getHero();
+    this.getFormula();
   }
 
-  getHero(): void {
+  getFormula(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getFormula(id).subscribe((hero) => (this.refYield = hero));
+    this.yieldFormulaService.getFormula(id).subscribe((yf) => (this.refYield = yf));
   }
 
   goBack(): void {
@@ -37,13 +36,13 @@ export class HeroDetailComponent implements OnInit {
   }
 
   update(): void {
-    this.heroService
+    this.yieldFormulaService
       .updateYieldFormula(this.refYield)
       .subscribe(() => this.goBack());
   }
 
   save(): void {
-    this.heroService.addYieldFormula(this.yield).subscribe((y) => {
+    this.yieldFormulaService.addYieldFormula(this.yield).subscribe((y) => {
       this.yield = y;
     });
   }

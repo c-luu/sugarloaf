@@ -1,0 +1,51 @@
+<div *ngIf="refYield">
+  <h2>Reference Yield: {{ refYield.name }}</h2>
+  <div>
+    <label>Ref starter (g): </label>
+    <input [(ngModel)]="refYield.starter" />
+  </div>
+  <div>
+    <label>Ref flour (g): </label>
+    <input [(ngModel)]="refYield.flour" />
+  </div>
+  <div>
+    <label>Ref water (g): </label>
+    <input [(ngModel)]="refYield.water" />
+  </div>
+  <div>
+    <label>Ref yield target: </label>
+    <input [(ngModel)]="refYield.target" />
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="update()">update</button>
+</div>
+
+<div *ngIf="yield">
+  <h2>Levain Build</h2>
+  <div>
+    <label>Name (if saving): </label>
+    <input [(ngModel)]="yield.name" />
+  </div>
+  <div>
+    <label>Target starter (g): </label>
+    <input disabled [(ngModel)]="yield.starter" />
+  </div>
+  <div>
+    <label>Target flour (g): </label>
+    <input disabled [(ngModel)]="yield.flour" />
+  </div>
+  <div>
+    <label>Target water (g): </label>
+    <input disabled [(ngModel)]="yield.water" />
+  </div>
+  <div>
+    <label>yield target: </label>
+    <input [(ngModel)]="yield.target" />
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="calculate()">calculate</button>
+  <button (click)="save()">save</button>
+  <button *ngIf="yield.id > 0">
+    <a routerLink="/hydration/{{ yield.id }}"> to hydration calculation </a>
+  </button>
+</div>
