@@ -28,5 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Running the server
 
-Run `npm i` to install the dependencies. 
-Run `npx -p @angular/cli ng b` to start the server.
+Run `npm i` to install the dependencies.
+Run `npx -p @angular/cli ng serve` to start the server.

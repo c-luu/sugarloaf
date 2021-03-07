@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
 import { YieldFormulaService } from '../hero.service';
 import { YieldFormula, Hydration } from '../hero';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-hydration',
@@ -13,15 +13,26 @@ import { YieldFormula, Hydration } from '../hero';
 export class HydrationComponent implements OnInit {
   refYield: YieldFormula;
   hydration: Hydration;
+  form: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private heroService: YieldFormulaService,
-    private location: Location
+    private location: Location,
+    private formBuilder: FormBuilder
   ) {
     this.refYield = new YieldFormula();
     this.hydration = new Hydration();
     this.hydration.additionalFlourMeasurements = new Array<number>();
+    const fb = this.formBuilder;
+    this.form = fb.group({
+      refYield: fb.group({
+        starter: [0, {disabled: true}],
+        flour: [69, {disabled: true}],
+        water: [0, {disabled: true}],
+        target: [0, {disabled: true}],
+      })
+    });
   }
 
   ngOnInit(): void {

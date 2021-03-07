@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -11,6 +11,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { YieldFormulaComponent } from './heroes/heroes.component';
 import { HydrationComponent } from './hydration/hydration.component';
+import { ReferenceYieldComponent } from './reference-yield/reference-yield.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { HydrationComponent } from './hydration/hydration.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -32,6 +34,7 @@ import { HydrationComponent } from './hydration/hydration.component';
     MessagesComponent,
     HeroSearchComponent,
     HydrationComponent,
+    ReferenceYieldComponent,
   ],
   bootstrap: [AppComponent],
 })

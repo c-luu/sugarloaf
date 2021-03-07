@@ -1,21 +1,6 @@
 <div *ngIf="refYield">
   <h2>Reference Yield: {{ refYield.name }}</h2>
-  <div>
-    <label>Ref starter (g): </label>
-    <input type="number" disabled [(ngModel)]="refYield.starter" />
-  </div>
-  <div>
-    <label>Ref flour (g): </label>
-    <input type="number" disabled [(ngModel)]="refYield.flour" />
-  </div>
-  <div>
-    <label>Ref water (g): </label>
-    <input type="number" disabled [(ngModel)]="refYield.water" />
-  </div>
-  <div>
-    <label>Ref yield target: </label>
-    <input type="number" disabled [(ngModel)]="refYield.target" />
-  </div>
+  <app-reference-yield formGroupName="refYield"></app-reference-yield>
 </div>
 <div *ngIf="hydration">
   <h2>Hydration Percentage Calculator</h2>
